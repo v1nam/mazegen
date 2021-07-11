@@ -20,13 +20,13 @@ async fn main() {
     let mut stack = vec![[0, 0]];
     let mut visited = vec![[0, 0]];
     let mut constructed = false;
-    for y in 0..SIZE {
+    for (y, row) in grid.iter_mut().enumerate() {
         if y % 2 == 0 {
-            grid[y] = [false; SIZE];
+            *row = [false; SIZE];
         } else {
-            for x in 0..SIZE {
+            for (x, col) in row.iter_mut().enumerate() {
                 if x % 2 == 0 {
-                    grid[y][x] = false;
+                    *col = false;
                 }
             }
         }
@@ -146,8 +146,8 @@ async fn main() {
             clear_background(LIGHTGRAY);
 
             set_camera(&Camera3D {
-                position: position,
-                up: up,
+                position,
+                up,
                 target: position + front,
                 ..Default::default()
             });
