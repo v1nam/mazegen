@@ -162,7 +162,7 @@ async fn main() {
                         color = YELLOW;
                     }
                     if !*column {
-                        color = DARKGRAY;
+                        color = GRAY;
                     }
                     if color != WHITE {
                         draw_cube(
